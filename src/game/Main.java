@@ -82,10 +82,11 @@ public class Main {
             //int countWantToGo = 0;
 
             List<Planet> myPlanets = round.getOwnPlanets();
-            Planet myCurPlanet = myPlanets.get(0);
-            Integer myID = new Integer(0);
+
 
             for (int x = 0; x < myPlanets.size(); x++) {
+                Planet myCurPlanet = new Planet();
+                Integer myID = new Integer(0);
                 myCurPlanet = myPlanets.get(x);
                 myID = myCurPlanet.getId();
                 //перебираем все планеты.
@@ -191,7 +192,7 @@ public class Main {
                     && (k < candPlanetListPremium.size())) {
                 //System.out.println("Список ожидания premium.");
 
-                movingGroups.add(new MovingGroup(candPlanetListPremium.get(k).getFrom(), candPlanetListPremium.get(k).getIndex(), candPlanetListPremium.get(k).getSumPopulation() + candPlanetListPremium.get(k).getReprodaction() * allPlanet.get(candPlanetListPremium.get(k).getIndex()).getPopulation() - candPlanetListPremium.get(k).getCountWasGoByMe() + 1));
+                movingGroups.add(new MovingGroup(candPlanetListPremium.get(k).getFrom(), candPlanetListPremium.get(k).getIndex(), candPlanetListPremium.get(k).getSumPopulation() - candPlanetListPremium.get(k).getCountWasGoByMe() + 1));
                 sumCountMyGroups = sumCountMyGroups + candPlanetListPremium.get(k).getSumPopulation() - candPlanetListPremium.get(k).getCountWasGoByMe() + 1 ;
                 k++;
             }
@@ -204,7 +205,7 @@ public class Main {
 //            for (int p = 0; p < candPlanetList.size(); p++) {
 //                System.out.println(candPlanetList.get(p));
 //            }
-                movingGroups.add(new MovingGroup(candPlanetList.get(k).getFrom(), candPlanetList.get(k).getIndex(), candPlanetList.get(k).getSumPopulation() + allPlanet.get(candPlanetList.get(k).getIndex()).getPopulation() + 1));
+                movingGroups.add(new MovingGroup(candPlanetList.get(k).getFrom(), candPlanetList.get(k).getIndex(), candPlanetList.get(k).getSumPopulation() + 1));
                 sumCountMyGroups = sumCountMyGroups + candPlanetList.get(k).getSumPopulation();
                 k++;
             }
